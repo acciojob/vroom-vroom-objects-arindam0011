@@ -1,7 +1,22 @@
 // Complete the js code
-function Car(make, model) {}
+function Car(make, model) {
+	this.Make=make,
+	this.Model=model
+}
+Car.prototype.getMakeModel=function(){
+	return `${this.Make} ${this.Model}`;
+}
+function SportsCar(make, model, topSpeed) {
+	Car.call(this, make, model);
+	this.TopSpeed=topSpeed
+}
 
-function SportsCar(make, model, topSpeed) {}
+SportsCar.prototype=Object.create(Car.prototype);
+SportsCar.prototype.constructor=SportsCar;
+
+SportsCar.prototype.getTopSpeed=functuion(){
+	return this.TopSpeed;
+}
 
 // Do not change the code below
 window.Car = Car;
